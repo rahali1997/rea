@@ -1,15 +1,9 @@
 pipeline {
-    agent {
-        docker {
-            image '16-alpine'
-            args '-p 3000:3000'
-        }
-    }
 
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'docker-compose up -d --build'
             }
         }
      
